@@ -7,7 +7,8 @@
 #' @param filename - the filename, a bzipped .csv file supplied with the assignment
 #' @importFrom readr read_csv
 #' @importFrom dplyr tbl_df
-#'
+#' @examples
+#' \dontrun{fars_read("accident_2013.csv.bz2")}
 #' @return The data as a \code{tbl_df}
 #' @export
 fars_read <- function(filename) {
@@ -24,8 +25,10 @@ fars_read <- function(filename) {
 #' Read FARS data into memory and select month and years
 # @inheritParams make_filename # actually does not work as advertised in the book
 #' @importFrom dplyr mutate select
+#' @param years vector of four digit years
 #' @return A \code{tbl_df} with month and years as columns
-#' @examples fars_read_years(c(2013, 2014))
+#' @examples
+#' \dontrun{fars_read_years(c(2013, 2014))}
 #' @note Uses \code{\link{make_filename}} internally, warns on invalid year
 #' @export
 fars_read_years <- function(years) {
@@ -47,7 +50,9 @@ fars_read_years <- function(years) {
 #' @return tbl_df with MONTH and the respective years as columns
 #' @importFrom dplyr bind_rows group_by summarize %>%
 #' @importFrom tidyr spread
-#' @examples fars_summarize_years(c(2013, 2014))
+#' @examples
+#' \dontrun{fars_summarize_years(c(2013, 2014))}
+#' @export
 
 fars_summarize_years <- function(years) {
   dat_list <- fars_read_years(years)
@@ -67,10 +72,14 @@ fars_summarize_years <- function(years) {
 #' @importFrom maps map
 #' @return A map of the state and location of accident - an image
 #'
-#' @examples fars_map_state(48, 2013)
+#' @examples
+#' \dontrun{fars_map_state(48, 2013)}
+#'
 #' @note Requires dplyr and maps package. To be called at package level via 'importFrom'
 #' statements
 #' @note Errors on state numbers not included in the data package
+#' @export
+
 fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)
   data <- fars_read(filename)
@@ -102,7 +111,7 @@ fars_map_state <- function(state.num, year) {
 #' @return the filename styled including the ending for bz2-compressed csv
 #' @examples make_filename(2013)
 #' @note Internal function, will blindly assume names without any checking of existence of file
-#'
+#' @export
 make_filename <- function(year) {
   year <- as.integer(year)
   sprintf("accident_%d.csv.bz2", year)
