@@ -24,6 +24,7 @@ statements
 Errors on state numbers not included in the data package
 }
 \examples{
-fars_map_state(48, 2013)
+\dontrun{fars_map_state(48, 2013)}
+
 }
 

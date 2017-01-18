@@ -6,6 +6,9 @@
 \usage{
 fars_read_years(years)
 }
+\arguments{
+\item{years}{vector of four digit years}
+}
 \value{
 A \code{tbl_df} with month and years as columns
 }
@@ -16,6 +19,6 @@ Read FARS data into memory and select month and years
 Uses \code{\link{make_filename}} internally, warns on invalid year
 }
 \examples{
-fars_read_years(c(2013, 2014))
+\dontrun{fars_read_years(c(2013, 2014))}
 }
 

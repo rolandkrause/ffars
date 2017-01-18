@@ -16,6 +16,6 @@ tbl_df with MONTH and the respective years as columns
 Summarize years by month
 }
 \examples{
-fars_summarize_years(c(2013, 2014))
+\dontrun{fars_summarize_years(c(2013, 2014))}
 }
 

@@ -19,4 +19,7 @@ Read Fatality Analysis Reporting System (FARS) data
 Read FARS data in comma-separated files (compression optional) into \code{tbl_df}
 Fails if filename not available - use \link{make_filename}  for canonical file nameing
 }
+\examples{
+\dontrun{fars_read("accident_2013.csv.bz2")}
+}
 
