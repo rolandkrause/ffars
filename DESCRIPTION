@@ -2,12 +2,17 @@ Package: ffars
 Type: Package
 Imports: dplyr, readr, maps, tidyr
 Title: What the Package Does (Title Case)
-Version: 0.1.0
+Version: 0.1.1
 Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Maintainer: The noble package maintainer <roland.krause@gmail.com>
+Description: A fragment of a package to parse, munge and display data of the 
+    US National Highway Traffic Safety Administration's Fatality Analysis Reporting System (FARS)
+    written for the Coursera course "Building R packages".
+    The data files are not provided in this package and need to be downloaded via Coursera.
 License: GPL
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
