@@ -3,7 +3,7 @@ Type: Package
 Imports: dplyr, readr, maps, tidyr
 Title: What the Package Does (Title Case)
 Version: 0.1.1
-Author: Who wrote it
+Author: Roland Krause
 Maintainer: The noble package maintainer <roland.krause@gmail.com>
 Description: A fragment of a package to parse, munge and display data of the 
     US National Highway Traffic Safety Administration's Fatality Analysis Reporting System (FARS)
