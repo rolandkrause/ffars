@@ -9,46 +9,43 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-A fragment of a package to parse, munge and display data of the 
-    US National Highway Traffic Safety Administration's Fatality Analysis Reporting System (FARS)
-    written for the Coursera course "Building R packages".
+A fragment of a package to parse, munge and display data of the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System (FARS)
+written for the Coursera course "Building R packages". The original website indicated
+in the course is no longer accessible, hence explantions for e.g. state IDs an
     
-
-## Vignette Info
-
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
-
 ## Data
-Data is not included in the package and needs to be downloaded from the source site
+Data is not included in the package and needs to be downloaded from the course site. Unfortunately, the website 
+to explain the data is no longer available. 
 
-## Mapping data
+## Simple examples
 
-The figure sizes have been customised so that you can easily put two images side-by-side. 
+The useful functions of this package are  `fars_map_state` and `fars_summarize_years`. Other functions merely provide basic funtionalities used by top-level functions. 
 
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
-```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+### Mapping accidents by state
+`fars_map_state` will present an image of the location of accidents on a map of the state. 
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## A simple examples
-
-The really useful functions of this package are the functions `fars_map_state` and 
-
-```{r, echo=FALSE, results='asis', eval=FALSE}
+```{r, eval=FALSE}
 
 fars_map_state(48, 2014) 
 ```
 
-Also a quote using `>`:
+### Summary by month
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+A simple breakdown by month of the respective years.
+
+```{r eval=FALSE}
+fars_summarize_years(2013)
+```
+
+
+### Internal functions
+
+In principle, these functions provides only very basic routines. In a final package, they would probably not be exported
+and include more resilience, e.g. for missing installation data etc. 
+
+```{r eval=FALSE}
+fars_file <- make_filename(2013)
+fars_df <- fars_read(fars_file)
+fars_simple_df <- fars_read_years(years)
+```
